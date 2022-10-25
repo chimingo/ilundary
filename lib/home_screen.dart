@@ -13,63 +13,65 @@ class HomePage extends StatelessWidget {
           title: const Text("iLundary"),
         ),
         drawer: const Drawer(),
-        body: Column(
-          children: <Widget>[
-            const SizedBox(height: 20.5),
-            // first text widget
-            const Center(
-              child: Text(
-                "My Lundary Data",
-                style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w800, color: Color.fromARGB(255, 100, 137, 167)),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              const SizedBox(height: 20.5),
+              // first text widget
+              const Center(
+                child: Text(
+                  "My Lundary Data",
+                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w800, color: Color.fromARGB(255, 100, 137, 167)),
+                ),
               ),
-            ),
-
-            // container widget that has a center widget inside
-            const MyOrder(),
-
-            // row widget that has two containers
-            Row(
-              children: const [
-                SizedBox(width: 20.0),
-                StatData(
-                  textdata: "42 \nCompleted",
-                  customColor: Color.fromARGB(255, 39, 176, 160),
-                ),
-                SizedBox(width: 10.0),
-                StatData(
-                  textdata: "20 \nPending",
-                  customColor: Color.fromARGB(255, 163, 23, 70),
-                ),
-              ],
-            ),
-
-            // stack widget that has a column containing container with center widget
-            Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  color: Colors.blue,
-                  padding: const EdgeInsets.all(25.0),
-                  margin: const EdgeInsets.only(left: 25.0, top: 30.0, right: 25.0),
-                  child: Column(
-                    children:  [
-                      // StatData(textdata: "Place Order", customColor: Colors.teal),
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder:((context) => const PlaceOrder())),
-                          );
-                        },
-                        child: const StackBtn(customColor: Colors.teal, text: "Place Order")),
-                      const SizedBox(height: 10.0),
-                      const StackBtn(customColor: Colors.red, text: "Exit"),
-                    ],
+        
+              // container widget that has a center widget inside
+              const MyOrder(),
+        
+              // row widget that has two containers
+              Row(
+                children: const [
+                  SizedBox(width: 20.0),
+                  StatData(
+                    textdata: "42 \nCompleted",
+                    customColor: Color.fromARGB(255, 39, 176, 160),
                   ),
-                )
-              ],
-            )
-          ],
+                  SizedBox(width: 10.0),
+                  StatData(
+                    textdata: "20 \nPending",
+                    customColor: Color.fromARGB(255, 163, 23, 70),
+                  ),
+                ],
+              ),
+        
+              // stack widget that has a column containing container with center widget
+              Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    color: Colors.blue,
+                    padding: const EdgeInsets.all(25.0),
+                    margin: const EdgeInsets.only(left: 25.0, top: 30.0, right: 25.0),
+                    child: Column(
+                      children:  [
+                        // StatData(textdata: "Place Order", customColor: Colors.teal),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder:((context) => const PlaceOrder())),
+                            );
+                          },
+                          child: const StackBtn(customColor: Colors.teal, text: "Place Order")),
+                        const SizedBox(height: 10.0),
+                        const StackBtn(customColor: Colors.red, text: "Exit"),
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       );
   }
