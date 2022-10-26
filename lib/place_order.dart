@@ -27,27 +27,17 @@ final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
      
         body:SafeArea(
           child: SingleChildScrollView(
-
-              
-              child: Column(
-                children:[
-                  Container(
-                color:const Color.fromARGB(255, 144, 200, 249),
-                width: double.infinity,
-                padding: const EdgeInsets.only(left: 10.0, top: 20.0, bottom: 20.0, right: 10.0),
-                margin: const EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 10.0),
-                child: const Text(
-                  "Enter the details of your Laundry Order",
-                  style: TextStyle(fontSize: 18.0),
-                ),
-              ),
-                  
-                  // const Padding(
-                  //   padding: EdgeInsets.only(top:30,left: 10,right: 10, bottom: 15),
-                  //   child: Text("Enter the details of your data laundry and click to proceed",
-                  //   style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),
-                  //   ),
-                  // ),
+           child: Column(
+            children:[
+             Container(
+            color:const Color.fromARGB(255, 144, 200, 249),
+            width: double.infinity,
+               margin: const EdgeInsets.fromLTRB(20.0, 20.0, 25.0, 10.0),
+               padding: const EdgeInsets.only(left: 10,top:20.0,right: 20.0, bottom: 20.0),
+                child: const Text("Enter the details of your data laundry and click to proceed",
+                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700),
+                    ),
+                   ),
                    const Divider(
                     color: Colors.lightBlue,
                     thickness: 2,
@@ -100,8 +90,9 @@ final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
                           labelText: "Cloth type",
                         ),
                       ),
+                      const SizedBox(height:10),
                    Padding(
-                 padding: const EdgeInsets.all(8.0),
+                 padding: const EdgeInsets.all(4.0),
                 
               
                    child:TextFormField(
@@ -125,9 +116,9 @@ final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
                       
                 ),
                ),
-              const SizedBox(height:1),
+              const SizedBox(height:10),
                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(4.0),
               
                   child:TextFormField(
                     validator: (value){
@@ -188,15 +179,20 @@ final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
                  ElevatedButton(
                   onPressed: (){
                     if (_formkey.currentState!.validate()) {
-                      print("Cloth type${clothType.text}");
+                    //   print("Cloth type${clothType.text}");
                       
 
-                    print(clothType.text);
-                    print(colourType.text);
-                    print(priceType.text);
-                    print(quantityType.text);
+                    // print(clothType.text);
+                    // print(colourType.text);
+                    // print(priceType.text);
+                    // print(quantityType.text);
                     Navigator.push(context, MaterialPageRoute(builder:((context){ 
-                      return OrderDetails(clothType:clothType.text,colourType:colourType.text);
+                      return OrderDetails(
+                        clothType:clothType.text,
+                        colourType:colourType.text,
+                        price:int.parse(priceType.text),
+                        quantity:int.parse(quantityType.text),
+                        );
                      
 
 
